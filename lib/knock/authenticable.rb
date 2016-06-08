@@ -1,5 +1,6 @@
 module Knock::Authenticable
-  def current_user
+
+  def knock_current_user
     @current_user ||= begin
       token = params[:token] || request.headers['HTTP_AUTHORIZATION'].split.last
       Knock::AuthToken.new(token: token).current_user
